@@ -1,0 +1,3231 @@
+{
+  "source": {
+    "repository": "https://github.com/meta/astryx",
+    "revision": "e8ecde4ff82d424d76de8d6d8b122421a184c4a6",
+    "entry": "packages/core/src/index.ts"
+  },
+  "scope": "根入口的 UI 组件族（export * 排除 hooks/utils/theme/i18n/两个 Context，加命名导出的 Toast）。部件、别名、Context 单列，不重复计算为独立组件族。",
+  "excluded": [
+    "BaseProps",
+    "InteractiveRoleContext",
+    "LayerProvider",
+    "SizeContext",
+    "createAnimator",
+    "createPanGesture",
+    "hooks",
+    "i18n",
+    "theme",
+    "useLayer",
+    "useToast",
+    "utils"
+  ],
+  "provider_equivalents": {
+    "LayerProvider": "Scope + Overlay/Popover/Dialog/ToastViewport",
+    "SizeContext": "Options.Size",
+    "InteractiveRoleContext": "原生 Element.Role",
+    "theme/i18n": "局部 theme.Theme 与宿主文案/日期区域设置"
+  },
+  "families": [
+    {
+      "family": "AlertDialog",
+      "native": [
+        "AlertDialog"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "AlertDialog",
+          "status": "native-api",
+          "native": [
+            "AlertDialog"
+          ],
+          "representation": "AlertDialog",
+          "source": "packages/core/src/AlertDialog/AlertDialog.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "AppShell",
+      "native": [
+        "AppShell"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "AppShell",
+          "status": "native-api",
+          "native": [
+            "AppShell"
+          ],
+          "representation": "AppShell",
+          "source": "packages/core/src/AppShell/AppShell.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "AppShellMobileContext",
+          "status": "platform-adaptation",
+          "native": [
+            "AppShell",
+            "MobileNavToggle"
+          ],
+          "representation": "视口布局与宿主展开状态；无 React Context 对象。",
+          "source": "packages/core/src/AppShell/AppShellMobileContext.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "AspectRatio",
+      "native": [
+        "AspectRatio"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "AspectRatio",
+          "status": "native-api",
+          "native": [
+            "AspectRatio"
+          ],
+          "representation": "AspectRatio",
+          "source": "packages/core/src/AspectRatio/AspectRatio.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Avatar",
+      "native": [
+        "Avatar",
+        "AvatarStatusDot"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Avatar",
+          "status": "native-api",
+          "native": [
+            "Avatar"
+          ],
+          "representation": "Avatar",
+          "source": "packages/core/src/Avatar/Avatar.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "AvatarStatusDot",
+          "status": "native-api",
+          "native": [
+            "AvatarStatusDot"
+          ],
+          "representation": "AvatarStatusDot",
+          "source": "packages/core/src/Avatar/AvatarStatusDot.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "AvatarOptions 支持尺寸、状态与动作。AvatarStatusDot 用实心/圆环/横杠区分状态，状态合并到头像的可访问名称。"
+    },
+    {
+      "family": "AvatarGroup",
+      "native": [
+        "AvatarGroup",
+        "AvatarGroupOverflow"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "AvatarGroup",
+          "status": "native-api",
+          "native": [
+            "AvatarGroup"
+          ],
+          "representation": "AvatarGroup",
+          "source": "packages/core/src/AvatarGroup/AvatarGroup.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "AvatarGroupOverflow",
+          "status": "native-api",
+          "native": [
+            "AvatarGroupOverflow"
+          ],
+          "representation": "AvatarGroupOverflow",
+          "source": "packages/core/src/AvatarGroup/AvatarGroupOverflow.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "AvatarGroupOverflow 支持真实隐藏人数、自定义文字、可选按钮动作与禁用状态。"
+    },
+    {
+      "family": "Badge",
+      "native": [
+        "Badge"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Badge",
+          "status": "native-api",
+          "native": [
+            "Badge"
+          ],
+          "representation": "Badge",
+          "source": "packages/core/src/Badge/Badge.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Banner",
+      "native": [
+        "Banner"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Banner",
+          "status": "native-api",
+          "native": [
+            "Banner"
+          ],
+          "representation": "Banner",
+          "source": "packages/core/src/Banner/Banner.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Blockquote",
+      "native": [
+        "Blockquote"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Blockquote",
+          "status": "native-api",
+          "native": [
+            "Blockquote"
+          ],
+          "representation": "Blockquote",
+          "source": "packages/core/src/Blockquote/Blockquote.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "BottomSheet",
+      "native": [
+        "BottomSheet"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "BottomSheet",
+          "status": "native-api",
+          "native": [
+            "BottomSheet"
+          ],
+          "representation": "BottomSheet",
+          "source": "packages/core/src/BottomSheet/BottomSheet.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "BottomSheetSwitcher",
+          "status": "deprecated-migration",
+          "native": [
+            "BottomSheet"
+          ],
+          "representation": "上游已弃用；Gallery 用一个受控 BottomSheet 按步骤替换内容，不映射为 Header/Footer。",
+          "source": "packages/core/src/BottomSheet/BottomSheetSwitcher.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "单个受控面板支持滚动正文和固定动作区；分步流程在同一面板中替换内容。弃用的 BottomSheetSwitcher 不作为 Header/Footer 别名。"
+    },
+    {
+      "family": "Breadcrumbs",
+      "native": [
+        "Breadcrumbs"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "BreadcrumbItem",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "Breadcrumb.Label/OnClick/Menu。",
+          "source": "packages/core/src/Breadcrumbs/BreadcrumbItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "BreadcrumbMenuCheckboxItem",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.Checked",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "BreadcrumbMenuDivider",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.Separator",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "BreadcrumbMenuGroup",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.Group（禁用的标题行）",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "BreadcrumbMenuItem",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.Label/Disabled/OnSelect",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "BreadcrumbMenuRadioGroup",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.共享 Radio 指针",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "BreadcrumbMenuRadioItem",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.Radio + Value",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "BreadcrumbMenuSubMenu",
+          "status": "native-model",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "MenuEntry.Children",
+          "source": "packages/core/src/Breadcrumbs/index.ts",
+          "documented": false
+        },
+        {
+          "export": "Breadcrumbs",
+          "status": "native-api",
+          "native": [
+            "Breadcrumbs"
+          ],
+          "representation": "Breadcrumbs",
+          "source": "packages/core/src/Breadcrumbs/Breadcrumbs.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "Breadcrumb.Menu 支持展开下级菜单，共享 MenuEntry。"
+    },
+    {
+      "family": "Button",
+      "native": [
+        "Button"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Button",
+          "status": "native-api",
+          "native": [
+            "Button"
+          ],
+          "representation": "Button",
+          "source": "packages/core/src/Button/Button.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "ButtonGroup",
+      "native": [
+        "ButtonGroup"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "ButtonGroup",
+          "status": "native-api",
+          "native": [
+            "ButtonGroup"
+          ],
+          "representation": "ButtonGroup",
+          "source": "packages/core/src/ButtonGroup/ButtonGroup.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Calendar",
+      "native": [
+        "Calendar"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Calendar",
+          "status": "native-api",
+          "native": [
+            "Calendar"
+          ],
+          "representation": "Calendar",
+          "source": "packages/core/src/Calendar/Calendar.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo 原生日历；内部月标题、日期格使用 MyGo 实现，不暴露 React 部件。"
+    },
+    {
+      "family": "Card",
+      "native": [
+        "Card"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Card",
+          "status": "native-api",
+          "native": [
+            "Card"
+          ],
+          "representation": "Card",
+          "source": "packages/core/src/Card/Card.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Carousel",
+      "native": [
+        "Carousel"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Carousel",
+          "status": "native-api",
+          "native": [
+            "Carousel"
+          ],
+          "representation": "Carousel",
+          "source": "packages/core/src/Carousel/Carousel.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "通用 Content 回调、方向键和循环切换；未实现触摸惯性滑动。"
+    },
+    {
+      "family": "Center",
+      "native": [
+        "Center"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Center",
+          "status": "native-api",
+          "native": [
+            "Center"
+          ],
+          "representation": "Center",
+          "source": "packages/core/src/Center/Center.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Chat",
+      "native": [
+        "Chat",
+        "ChatLayout",
+        "ChatMessageList",
+        "ChatComposer",
+        "ChatComposerInput",
+        "ChatSendButton",
+        "ChatLayoutScrollButton",
+        "ChatMessage",
+        "ChatMessageBubble",
+        "ChatMessageMetadata",
+        "ChatSystemMessage",
+        "ChatToolCalls",
+        "ChatComposerTokenElement",
+        "ChatTokenizedText",
+        "ChatComposerDrawer",
+        "ChatDictationButton"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "ChatComposer",
+          "status": "native-api",
+          "native": [
+            "ChatComposer"
+          ],
+          "representation": "ChatComposer",
+          "source": "packages/core/src/Chat/ChatComposer.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatComposerDrawer",
+          "status": "native-api",
+          "native": [
+            "ChatComposerDrawer"
+          ],
+          "representation": "ChatComposerDrawer",
+          "source": "packages/core/src/Chat/ChatComposerDrawer.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatComposerInput",
+          "status": "native-api",
+          "native": [
+            "ChatComposerInput"
+          ],
+          "representation": "ChatComposerInput",
+          "source": "packages/core/src/Chat/ChatComposerInput.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatComposerTokenElement",
+          "status": "native-api",
+          "native": [
+            "ChatComposerTokenElement"
+          ],
+          "representation": "ChatComposerTokenElement",
+          "source": "packages/core/src/Chat/ChatComposerTokenElement.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatDictationButton",
+          "status": "native-api",
+          "native": [
+            "ChatDictationButton"
+          ],
+          "representation": "ChatDictationButton",
+          "source": "packages/core/src/Chat/ChatDictationButton.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatLayout",
+          "status": "native-api",
+          "native": [
+            "ChatLayout"
+          ],
+          "representation": "ChatLayout",
+          "source": "packages/core/src/Chat/ChatLayout.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatLayoutScrollButton",
+          "status": "native-api",
+          "native": [
+            "ChatLayoutScrollButton"
+          ],
+          "representation": "ChatLayoutScrollButton",
+          "source": "packages/core/src/Chat/ChatLayoutScrollButton.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatMessage",
+          "status": "native-api",
+          "native": [
+            "ChatMessage"
+          ],
+          "representation": "ChatMessage",
+          "source": "packages/core/src/Chat/ChatMessage.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatMessageBubble",
+          "status": "native-api",
+          "native": [
+            "ChatMessageBubble"
+          ],
+          "representation": "ChatMessageBubble",
+          "source": "packages/core/src/Chat/ChatMessageBubble.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatMessageList",
+          "status": "native-api",
+          "native": [
+            "ChatMessageList"
+          ],
+          "representation": "ChatMessageList",
+          "source": "packages/core/src/Chat/ChatMessageList.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatMessageMetadata",
+          "status": "native-api",
+          "native": [
+            "ChatMessageMetadata"
+          ],
+          "representation": "ChatMessageMetadata",
+          "source": "packages/core/src/Chat/ChatMessageMetadata.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatSendButton",
+          "status": "native-api",
+          "native": [
+            "ChatSendButton"
+          ],
+          "representation": "ChatSendButton",
+          "source": "packages/core/src/Chat/ChatSendButton.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatSystemMessage",
+          "status": "native-api",
+          "native": [
+            "ChatSystemMessage"
+          ],
+          "representation": "ChatSystemMessage",
+          "source": "packages/core/src/Chat/ChatSystemMessage.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatTokenizedText",
+          "status": "native-api",
+          "native": [
+            "ChatTokenizedText"
+          ],
+          "representation": "ChatTokenizedText",
+          "source": "packages/core/src/Chat/ChatTokenizedText.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ChatToolCalls",
+          "status": "native-api",
+          "native": [
+            "ChatToolCalls"
+          ],
+          "representation": "ChatToolCalls",
+          "source": "packages/core/src/Chat/ChatToolCalls.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "消息保留文本与上下文，支持反馈、工具详情和输入；发送/停止/听写由宿主回调提供。Token 独立展示，不实现 contenteditable 光标内嵌标记；听写没有音量频段动画。"
+    },
+    {
+      "family": "CheckboxInput",
+      "native": [
+        "Checkbox"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "CheckboxInput",
+          "status": "native-equivalent",
+          "native": [
+            "Checkbox"
+          ],
+          "representation": "原生命名为 Checkbox，不重复新增别名方法。",
+          "source": "packages/core/src/CheckboxInput/CheckboxInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "CheckboxList",
+      "native": [
+        "CheckboxList"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "CheckboxList",
+          "status": "native-api",
+          "native": [
+            "CheckboxList"
+          ],
+          "representation": "CheckboxList",
+          "source": "packages/core/src/CheckboxList/CheckboxList.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CheckboxListItem",
+          "status": "native-model",
+          "native": [
+            "CheckboxList"
+          ],
+          "representation": "Option 与 SelectionOptions。",
+          "source": "packages/core/src/CheckboxList/CheckboxListItem.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Citation",
+      "native": [
+        "Citation"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Citation",
+          "status": "native-api",
+          "native": [
+            "Citation"
+          ],
+          "representation": "Citation",
+          "source": "packages/core/src/Citation/Citation.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "ClickableCard",
+      "native": [
+        "ClickableCard"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "ClickableCard",
+          "status": "native-api",
+          "native": [
+            "ClickableCard"
+          ],
+          "representation": "ClickableCard",
+          "source": "packages/core/src/ClickableCard/ClickableCard.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "CodeBlock",
+      "native": [
+        "CodeBlock",
+        "Code"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Code",
+          "status": "native-api",
+          "native": [
+            "Code"
+          ],
+          "representation": "Code",
+          "source": "packages/core/src/Code/Code.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CodeBlock",
+          "status": "native-api",
+          "native": [
+            "CodeBlock"
+          ],
+          "representation": "CodeBlock",
+          "source": "packages/core/src/CodeBlock/CodeBlock.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo Markdown fenced code 提供语言高亮与复制；Code 是可选择的等宽文字。"
+    },
+    {
+      "family": "Collapsible",
+      "native": [
+        "Collapsible"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Collapsible",
+          "status": "native-api",
+          "native": [
+            "Collapsible"
+          ],
+          "representation": "Collapsible",
+          "source": "packages/core/src/Collapsible/Collapsible.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CollapsibleGroup",
+          "status": "native-model",
+          "native": [
+            "Accordion",
+            "Collapsible"
+          ],
+          "representation": "Disclosure 列表与各自的 Open 指针；允许多项展开。",
+          "source": "packages/core/src/Collapsible/CollapsibleGroup.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "CommandPalette",
+      "native": [
+        "CommandPalette"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "CommandPalette",
+          "status": "native-api",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "CommandPalette",
+          "source": "packages/core/src/CommandPalette/CommandPalette.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CommandPaletteEmpty",
+          "status": "native-model",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "Command / CommandPaletteOptions：内建搜索、分组、滚动列表与空提示；Footer 可由回调定制。",
+          "source": "packages/core/src/CommandPalette/CommandPaletteEmpty.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CommandPaletteFooter",
+          "status": "native-model",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "Command / CommandPaletteOptions：内建搜索、分组、滚动列表与空提示；Footer 可由回调定制。",
+          "source": "packages/core/src/CommandPalette/CommandPaletteFooter.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CommandPaletteGroup",
+          "status": "native-model",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "Command / CommandPaletteOptions：内建搜索、分组、滚动列表与空提示；Footer 可由回调定制。",
+          "source": "packages/core/src/CommandPalette/CommandPaletteGroup.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CommandPaletteInput",
+          "status": "native-model",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "Command / CommandPaletteOptions：内建搜索、分组、滚动列表与空提示；Footer 可由回调定制。",
+          "source": "packages/core/src/CommandPalette/CommandPaletteInput.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CommandPaletteItem",
+          "status": "native-model",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "Command / CommandPaletteOptions：内建搜索、分组、滚动列表与空提示；Footer 可由回调定制。",
+          "source": "packages/core/src/CommandPalette/CommandPaletteItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "CommandPaletteList",
+          "status": "native-model",
+          "native": [
+            "CommandPalette"
+          ],
+          "representation": "Command / CommandPaletteOptions：内建搜索、分组、滚动列表与空提示；Footer 可由回调定制。",
+          "source": "packages/core/src/CommandPalette/CommandPaletteList.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "Command 模型提供分组、筛选、禁用、方向键和 Enter；宿主注册全局快捷键。"
+    },
+    {
+      "family": "ComplexSelector",
+      "native": [
+        "ComplexSelector"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "ComplexSelector",
+          "status": "native-api",
+          "native": [
+            "ComplexSelector"
+          ],
+          "representation": "ComplexSelector",
+          "source": "packages/core/src/ComplexSelector/ComplexSelector.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "ContextMenu",
+      "native": [
+        "ContextMenu"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "ContextMenu",
+          "status": "native-api",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "ContextMenu",
+          "source": "packages/core/src/ContextMenu/ContextMenu.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ContextMenuCheckboxItem",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.Checked",
+          "source": "packages/core/src/ContextMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "ContextMenuDivider",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.Separator",
+          "source": "packages/core/src/ContextMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "ContextMenuGroup",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.Group（禁用的标题行）",
+          "source": "packages/core/src/ContextMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "ContextMenuItem",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.Label/Disabled/OnSelect",
+          "source": "packages/core/src/ContextMenu/ContextMenuItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ContextMenuRadioGroup",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.共享 Radio 指针",
+          "source": "packages/core/src/ContextMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "ContextMenuRadioItem",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.Radio + Value",
+          "source": "packages/core/src/ContextMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "ContextMenuSubMenu",
+          "status": "native-model",
+          "native": [
+            "ContextMenu"
+          ],
+          "representation": "MenuEntry.Children",
+          "source": "packages/core/src/ContextMenu/index.ts",
+          "documented": false
+        }
+      ],
+      "notes": "共享 MenuEntry；可选择 MyGo 绘制菜单或系统原生上下文菜单。"
+    },
+    {
+      "family": "DateInput",
+      "native": [
+        "DateInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "DateInput",
+          "status": "native-api",
+          "native": [
+            "DateInput"
+          ],
+          "representation": "DateInput",
+          "source": "packages/core/src/DateInput/DateInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "DateRangeInput",
+      "native": [
+        "DateRangeInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "DateRangeInput",
+          "status": "native-api",
+          "native": [
+            "DateRangeInput"
+          ],
+          "representation": "DateRangeInput",
+          "source": "packages/core/src/DateRangeInput/DateRangeInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "两端原生日历输入，预设、清空、范围与日期规则校验；不是双月并排日历的逐像素复刻。"
+    },
+    {
+      "family": "DateTimeInput",
+      "native": [
+        "DateTimeInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "DateTimeInput",
+          "status": "native-api",
+          "native": [
+            "DateTimeInput"
+          ],
+          "representation": "DateTimeInput",
+          "source": "packages/core/src/DateTimeInput/DateTimeInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Dialog",
+      "native": [
+        "Dialog"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Dialog",
+          "status": "native-api",
+          "native": [
+            "Dialog"
+          ],
+          "representation": "Dialog",
+          "source": "packages/core/src/Dialog/Dialog.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DialogHeader",
+          "status": "native-slot",
+          "native": [
+            "Dialog"
+          ],
+          "representation": "DialogOptions.Header 或 LayoutSlots 对应的内容回调。",
+          "source": "packages/core/src/Dialog/DialogHeader.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Divider",
+      "native": [
+        "Divider"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Divider",
+          "status": "native-api",
+          "native": [
+            "Divider"
+          ],
+          "representation": "Divider",
+          "source": "packages/core/src/Divider/Divider.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Drawer",
+      "native": [
+        "Drawer"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Drawer",
+          "status": "native-api",
+          "native": [
+            "Drawer"
+          ],
+          "representation": "Drawer",
+          "source": "packages/core/src/Drawer/Drawer.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DrawerHeader",
+          "status": "native-slot",
+          "native": [
+            "Drawer"
+          ],
+          "representation": "DialogOptions.Header 或 LayoutSlots 对应的内容回调。",
+          "source": "packages/core/src/Drawer/DrawerHeader.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "DropdownMenu",
+      "native": [
+        "DropdownMenu"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "DropdownMenu",
+          "status": "native-api",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "DropdownMenu",
+          "source": "packages/core/src/DropdownMenu/DropdownMenu.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuCheckboxItem",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.Checked",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuCheckboxItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuContext",
+          "status": "platform-adaptation",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry 共享数据与 MyGo 菜单关闭/焦点；无自定义 React 菜单项 hook。",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuContext.tsx",
+          "documented": false
+        },
+        {
+          "export": "DropdownMenuDivider",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.Separator",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuDivider.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuGroup",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.Group（禁用的标题行）",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuGroup.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuItem",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.Label/Disabled/OnSelect",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuRadioGroup",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.共享 Radio 指针",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuRadioGroup.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuRadioItem",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.Radio + Value",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuRadioItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "DropdownMenuSubMenu",
+          "status": "native-model",
+          "native": [
+            "DropdownMenu"
+          ],
+          "representation": "MenuEntry.Children",
+          "source": "packages/core/src/DropdownMenu/DropdownMenuSubMenu.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "条目、分组标题、分隔、勾选、单选、子菜单由 MenuEntry 统一建模；分组标题使用禁用菜单行。"
+    },
+    {
+      "family": "EmptyState",
+      "native": [
+        "EmptyState"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "EmptyState",
+          "status": "native-api",
+          "native": [
+            "EmptyState"
+          ],
+          "representation": "EmptyState",
+          "source": "packages/core/src/EmptyState/EmptyState.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Field",
+      "native": [
+        "Field",
+        "FieldStatus",
+        "InputClearButton"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Field",
+          "status": "native-api",
+          "native": [
+            "Field"
+          ],
+          "representation": "Field",
+          "source": "packages/core/src/Field/Field.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "FieldLabel",
+          "status": "native-model",
+          "native": [
+            "Field"
+          ],
+          "representation": "Field(label, content) 的原生标签与输入关联。",
+          "source": "packages/core/src/Field/FieldLabel.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "FieldStatus",
+          "status": "native-api",
+          "native": [
+            "FieldStatus"
+          ],
+          "representation": "FieldStatus",
+          "source": "packages/core/src/FieldStatus/FieldStatus.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "InputClearButton",
+          "status": "native-api",
+          "native": [
+            "InputClearButton"
+          ],
+          "representation": "InputClearButton",
+          "source": "packages/core/src/Field/InputClearButton.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "Field(label, content) 表示标签和内容，FieldStatus 与 InputClearButton 独立展示。"
+    },
+    {
+      "family": "FileInput",
+      "native": [
+        "FileInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "FileInput",
+          "status": "native-api",
+          "native": [
+            "FileInput"
+          ],
+          "representation": "FileInput",
+          "source": "packages/core/src/FileInput/FileInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "系统文件选择器与真实拖放；按扩展名/MIME 元数据、大小和数量校验。上传传输与进度由宿主负责；不做内容嗅探。"
+    },
+    {
+      "family": "FormLayout",
+      "native": [
+        "FormLayout"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "FormLayout",
+          "status": "native-api",
+          "native": [
+            "FormLayout"
+          ],
+          "representation": "FormLayout",
+          "source": "packages/core/src/FormLayout/FormLayout.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "FormLayoutContext",
+          "status": "platform-adaptation",
+          "native": [
+            "FormLayout",
+            "GridSpan"
+          ],
+          "representation": "显式列数和跨列；没有 DOM 字段测量上下文。",
+          "source": "packages/core/src/FormLayout/FormLayoutContext.ts",
+          "documented": false
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Grid",
+      "native": [
+        "Grid",
+        "GridSpan"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Grid",
+          "status": "native-api",
+          "native": [
+            "Grid"
+          ],
+          "representation": "Grid",
+          "source": "packages/core/src/Grid/Grid.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "GridSpan",
+          "status": "native-api",
+          "native": [
+            "GridSpan"
+          ],
+          "representation": "GridSpan",
+          "source": "packages/core/src/Grid/GridSpan.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "GridSpan 设置 MyGo 栅格元素的跨列；可继续配置原生 Grid。"
+    },
+    {
+      "family": "HoverCard",
+      "native": [
+        "HoverCard"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "HoverCard",
+          "status": "native-api",
+          "native": [
+            "HoverCard"
+          ],
+          "representation": "HoverCard",
+          "source": "packages/core/src/HoverCard/HoverCard.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Icon",
+      "native": [
+        "Icon"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Icon",
+          "status": "native-api",
+          "native": [
+            "Icon"
+          ],
+          "representation": "Icon",
+          "source": "packages/core/src/Icon/Icon.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "IconButton",
+      "native": [
+        "IconButton"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "IconButton",
+          "status": "native-api",
+          "native": [
+            "IconButton"
+          ],
+          "representation": "IconButton",
+          "source": "packages/core/src/IconButton/IconButton.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Indicator",
+      "native": [
+        "CheckboxIndicator",
+        "RadioIndicator",
+        "CheckIndicator"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "CheckIndicator",
+          "status": "native-api",
+          "native": [
+            "CheckIndicator"
+          ],
+          "representation": "CheckIndicator",
+          "source": "packages/core/src/Indicator/CheckIndicator.tsx",
+          "documented": false
+        },
+        {
+          "export": "CheckboxIndicator",
+          "status": "native-api",
+          "native": [
+            "CheckboxIndicator"
+          ],
+          "representation": "CheckboxIndicator",
+          "source": "packages/core/src/Indicator/CheckboxIndicator.tsx",
+          "documented": false
+        },
+        {
+          "export": "RadioIndicator",
+          "status": "native-api",
+          "native": [
+            "RadioIndicator"
+          ],
+          "representation": "RadioIndicator",
+          "source": "packages/core/src/Indicator/RadioIndicator.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "装饰性 Checkbox/Radio/Check 视觉；主题 Indicator 回调可替换，父控件保留语义和输入。"
+    },
+    {
+      "family": "InfoTip",
+      "native": [
+        "InfoTip"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "InfoTip",
+          "status": "native-api",
+          "native": [
+            "InfoTip"
+          ],
+          "representation": "InfoTip",
+          "source": "packages/core/src/InfoTip/InfoTip.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "InputGroup",
+      "native": [
+        "InputGroup"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "InputGroup",
+          "status": "native-api",
+          "native": [
+            "InputGroup"
+          ],
+          "representation": "InputGroup",
+          "source": "packages/core/src/InputGroup/InputGroup.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "InputGroupText",
+          "status": "native-model",
+          "native": [
+            "InputGroup",
+            "Text"
+          ],
+          "representation": "leading/trailing 回调中的 Text/Caption。",
+          "source": "packages/core/src/InputGroup/InputGroupText.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Item",
+      "native": [
+        "Item"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Item",
+          "status": "native-api",
+          "native": [
+            "Item"
+          ],
+          "representation": "Item",
+          "source": "packages/core/src/Item/Item.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Kbd",
+      "native": [
+        "Kbd"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Kbd",
+          "status": "native-api",
+          "native": [
+            "Kbd"
+          ],
+          "representation": "Kbd",
+          "source": "packages/core/src/Kbd/Kbd.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Layout",
+      "native": [
+        "Layout",
+        "HStack",
+        "Stack",
+        "Section",
+        "Card"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Card",
+          "status": "native-api",
+          "native": [
+            "Card"
+          ],
+          "representation": "Card",
+          "source": "packages/core/src/Card/Card.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "HStack",
+          "status": "native-api",
+          "native": [
+            "HStack"
+          ],
+          "representation": "HStack",
+          "source": "packages/core/src/HStack/HStack.tsx",
+          "documented": false
+        },
+        {
+          "export": "Layout",
+          "status": "native-api",
+          "native": [
+            "Layout"
+          ],
+          "representation": "Layout",
+          "source": "packages/core/src/Layout/Layout.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "LayoutAreaContext",
+          "status": "platform-adaptation",
+          "native": [
+            "Layout"
+          ],
+          "representation": "LayoutSlots 显式指定 Header/Content/Panel/Footer。",
+          "source": "packages/core/src/Layout/LayoutAreaContext.ts",
+          "documented": false
+        },
+        {
+          "export": "LayoutContent",
+          "status": "native-slot",
+          "native": [
+            "Layout"
+          ],
+          "representation": "DialogOptions.Header 或 LayoutSlots 对应的内容回调。",
+          "source": "packages/core/src/Layout/LayoutContent.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "LayoutDividerContext",
+          "status": "platform-adaptation",
+          "native": [
+            "Layout",
+            "Divider"
+          ],
+          "representation": "宿主明确组合边界与分隔线。",
+          "source": "packages/core/src/Layout/LayoutDividerContext.ts",
+          "documented": false
+        },
+        {
+          "export": "LayoutFooter",
+          "status": "native-slot",
+          "native": [
+            "Layout"
+          ],
+          "representation": "DialogOptions.Header 或 LayoutSlots 对应的内容回调。",
+          "source": "packages/core/src/Layout/LayoutFooter.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "LayoutHeader",
+          "status": "native-slot",
+          "native": [
+            "Layout"
+          ],
+          "representation": "DialogOptions.Header 或 LayoutSlots 对应的内容回调。",
+          "source": "packages/core/src/Layout/LayoutHeader.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "LayoutPanel",
+          "status": "native-slot",
+          "native": [
+            "Layout"
+          ],
+          "representation": "DialogOptions.Header 或 LayoutSlots 对应的内容回调。",
+          "source": "packages/core/src/Layout/LayoutPanel.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "Section",
+          "status": "native-api",
+          "native": [
+            "Section"
+          ],
+          "representation": "Section",
+          "source": "packages/core/src/Section/Section.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "Stack",
+          "status": "native-api",
+          "native": [
+            "Stack"
+          ],
+          "representation": "Stack",
+          "source": "packages/core/src/Stack/Stack.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "StackItem",
+          "status": "native-model",
+          "native": [
+            "Stack",
+            "HStack"
+          ],
+          "representation": "子元素的 Grow/Shrink/Align 等布局属性。",
+          "source": "packages/core/src/Stack/StackItem.tsx",
+          "documented": false
+        },
+        {
+          "export": "VStack",
+          "status": "native-equivalent",
+          "native": [
+            "Stack"
+          ],
+          "representation": "原生命名为 Stack，不重复新增别名方法。",
+          "source": "packages/core/src/VStack/VStack.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "Header/Content/Panel/Footer 是 LayoutSlots 回调；VStack 对应 Stack，StackItem 由元素布局方法表示。"
+    },
+    {
+      "family": "Lightbox",
+      "native": [
+        "Lightbox"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Lightbox",
+          "status": "native-api",
+          "native": [
+            "Lightbox"
+          ],
+          "representation": "Lightbox",
+          "source": "packages/core/src/Lightbox/Lightbox.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "原生图片预览、缩放、旋转、切换与滚动；不内置视频播放器。"
+    },
+    {
+      "family": "Link",
+      "native": [
+        "Link"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Link",
+          "status": "native-api",
+          "native": [
+            "Link"
+          ],
+          "representation": "Link",
+          "source": "packages/core/src/Link/Link.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "LinkProvider",
+          "status": "platform-adaptation",
+          "native": [
+            "Link"
+          ],
+          "representation": "调用宿主 URL 服务；没有 React Router Provider 的自动链接替换。",
+          "source": "packages/core/src/Link/LinkProvider.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "List",
+      "native": [
+        "List"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "List",
+          "status": "native-api",
+          "native": [
+            "List"
+          ],
+          "representation": "List",
+          "source": "packages/core/src/List/List.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ListItem",
+          "status": "native-model",
+          "native": [
+            "List"
+          ],
+          "representation": "虚拟列表的行内容回调；选择由 ListState 管理。",
+          "source": "packages/core/src/List/ListItem.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo 虚拟列表，应用管理 ListState、稳定 Key 和行内容。"
+    },
+    {
+      "family": "Markdown",
+      "native": [
+        "Markdown"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Markdown",
+          "status": "native-api",
+          "native": [
+            "Markdown"
+          ],
+          "representation": "Markdown",
+          "source": "packages/core/src/Markdown/Markdown.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo 原生 Markdown 渲染及流式入口，不使用 WebView；渲染能力遵循 MyGo markdown.Options。"
+    },
+    {
+      "family": "MetadataList",
+      "native": [
+        "MetadataList"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "MetadataList",
+          "status": "native-api",
+          "native": [
+            "MetadataList"
+          ],
+          "representation": "MetadataList",
+          "source": "packages/core/src/MetadataList/MetadataList.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "MetadataListItem",
+          "status": "native-model",
+          "native": [
+            "MetadataList"
+          ],
+          "representation": "Metadata{Label,Value}。",
+          "source": "packages/core/src/MetadataList/MetadataListItem.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "MobileNav",
+      "native": [
+        "MobileNav",
+        "MobileNavToggle"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "MobileNav",
+          "status": "native-api",
+          "native": [
+            "MobileNav"
+          ],
+          "representation": "MobileNav",
+          "source": "packages/core/src/MobileNav/MobileNav.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "MobileNavToggle",
+          "status": "native-api",
+          "native": [
+            "MobileNavToggle"
+          ],
+          "representation": "MobileNavToggle",
+          "source": "packages/core/src/MobileNav/MobileNavToggle.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "父项目打开子菜单，叶子项目回写选择；MobileNavToggle 与 Drawer/BottomSheet 共用宿主 bool 状态。"
+    },
+    {
+      "family": "MoreMenu",
+      "native": [
+        "MoreMenu"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "MoreMenu",
+          "status": "native-api",
+          "native": [
+            "MoreMenu"
+          ],
+          "representation": "MoreMenu",
+          "source": "packages/core/src/MoreMenu/MoreMenu.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "MultiSelector",
+      "native": [
+        "MultiSelector"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "MultiSelector",
+          "status": "native-api",
+          "native": [
+            "MultiSelector"
+          ],
+          "representation": "MultiSelector",
+          "source": "packages/core/src/MultiSelector/MultiSelector.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "NavIcon",
+      "native": [
+        "Icon"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "NavIcon",
+          "status": "native-equivalent",
+          "native": [
+            "Icon"
+          ],
+          "representation": "原生命名为 Icon，不重复新增别名方法。",
+          "source": "packages/core/src/NavIcon/NavIcon.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "NavMenu",
+      "native": [
+        "NavMenu"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "NavHeadingCloseContext",
+          "status": "platform-adaptation",
+          "native": [
+            "NavMenu"
+          ],
+          "representation": "原生菜单自动关闭并恢复触发器焦点。",
+          "source": "packages/core/src/NavMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "NavHeadingMenu",
+          "status": "native-model",
+          "native": [
+            "NavMenu"
+          ],
+          "representation": "标题位置由宿主组合 NavMenu；条目使用 MenuEntry。",
+          "source": "packages/core/src/NavMenu/NavHeadingMenu.tsx",
+          "documented": false
+        },
+        {
+          "export": "NavHeadingMenuContext",
+          "status": "platform-adaptation",
+          "native": [
+            "NavMenu"
+          ],
+          "representation": "MenuEntry 与原生菜单状态。",
+          "source": "packages/core/src/NavMenu/index.ts",
+          "documented": false
+        },
+        {
+          "export": "NavHeadingMenuItem",
+          "status": "native-model",
+          "native": [
+            "NavMenu"
+          ],
+          "representation": "MenuEntry 条目。",
+          "source": "packages/core/src/NavMenu/NavHeadingMenuItem.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "NumberInput",
+      "native": [
+        "NumberInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "NumberInput",
+          "status": "native-api",
+          "native": [
+            "NumberInput"
+          ],
+          "representation": "NumberInput",
+          "source": "packages/core/src/NumberInput/NumberInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Outline",
+      "native": [
+        "Outline"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Outline",
+          "status": "native-api",
+          "native": [
+            "Outline"
+          ],
+          "representation": "Outline",
+          "source": "packages/core/src/Outline/Outline.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "OverflowList",
+      "native": [
+        "OverflowList"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "OverflowList",
+          "status": "native-api",
+          "native": [
+            "OverflowList"
+          ],
+          "representation": "OverflowList",
+          "source": "packages/core/src/OverflowList/OverflowList.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "宿主传入可见项数量，其余进入菜单；不读取 DOM 自动测量项宽。"
+    },
+    {
+      "family": "Overlay",
+      "native": [
+        "Overlay"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Overlay",
+          "status": "native-api",
+          "native": [
+            "Overlay"
+          ],
+          "representation": "Overlay",
+          "source": "packages/core/src/Overlay/Overlay.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "原生叠层，支持模态、Escape 和可选背景关闭；Scope 与主题取代浏览器 LayerProvider。"
+    },
+    {
+      "family": "Pagination",
+      "native": [
+        "Pagination"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Pagination",
+          "status": "native-api",
+          "native": [
+            "Pagination"
+          ],
+          "representation": "Pagination",
+          "source": "packages/core/src/Pagination/Pagination.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Popover",
+      "native": [
+        "Popover"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Popover",
+          "status": "native-api",
+          "native": [
+            "Popover"
+          ],
+          "representation": "Popover",
+          "source": "packages/core/src/Popover/Popover.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "PowerSearch",
+      "native": [
+        "PowerSearch"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "PowerSearch",
+          "status": "native-api",
+          "native": [
+            "PowerSearch"
+          ],
+          "representation": "PowerSearch",
+          "source": "packages/core/src/PowerSearch/PowerSearch.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "PowerSearchFilterEditor",
+          "status": "native-model",
+          "native": [
+            "PowerSearch"
+          ],
+          "representation": "FilterField.Editor/Validate 与类型化内建编辑器。",
+          "source": "packages/core/src/PowerSearch/PowerSearchFilterEditor.tsx",
+          "documented": false
+        },
+        {
+          "export": "PowerSearchToken",
+          "status": "native-model",
+          "native": [
+            "PowerSearch",
+            "Token"
+          ],
+          "representation": "SearchFilter 对应的可编辑/只读 Token。",
+          "source": "packages/core/src/PowerSearch/PowerSearchToken.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "文字搜索和可增删改的类型化筛选；支持数字、日期、枚举、只读和自定义校验/编辑器。"
+    },
+    {
+      "family": "ProgressBar",
+      "native": [
+        "Progress"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "ProgressBar",
+          "status": "native-equivalent",
+          "native": [
+            "Progress"
+          ],
+          "representation": "原生命名为 Progress，不重复新增别名方法。",
+          "source": "packages/core/src/ProgressBar/ProgressBar.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "RadioList",
+      "native": [
+        "RadioList"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "RadioList",
+          "status": "native-api",
+          "native": [
+            "RadioList"
+          ],
+          "representation": "RadioList",
+          "source": "packages/core/src/RadioList/RadioList.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "RadioListContext",
+          "status": "platform-adaptation",
+          "native": [
+            "RadioList",
+            "RadioGroup"
+          ],
+          "representation": "共享 string 模型与原生单选分组。",
+          "source": "packages/core/src/RadioList/index.ts",
+          "documented": false
+        },
+        {
+          "export": "RadioListItem",
+          "status": "native-model",
+          "native": [
+            "RadioList"
+          ],
+          "representation": "Option + 共享 string 模型。",
+          "source": "packages/core/src/RadioList/RadioListItem.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Resizable",
+      "native": [
+        "Resizable"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "ResizeHandle",
+          "status": "native-model",
+          "native": [
+            "Resizable"
+          ],
+          "representation": "MyGo Split 内建的可拖动/键盘分隔线，无独立 Go 部件。",
+          "source": "packages/core/src/Resizable/ResizeHandle.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "MyGo Split 提供拖动和键盘分隔线；附加最小/最大、百分比、纵向和折叠模型。ResizeHandle 是内置分隔线。"
+    },
+    {
+      "family": "ScrollableArea",
+      "native": [
+        "Scroll"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "ScrollableArea",
+          "status": "native-equivalent",
+          "native": [
+            "Scroll"
+          ],
+          "representation": "原生命名为 Scroll，不重复新增别名方法。",
+          "source": "packages/core/src/ScrollableArea/ScrollableArea.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "ScrollOptions 支持纵向、横向或双轴 MyGo 滚动。DOM stickyContainment、overscroll 与 React hook 不逐项移植。"
+    },
+    {
+      "family": "Section",
+      "native": [
+        "Section"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Section",
+          "status": "native-api",
+          "native": [
+            "Section"
+          ],
+          "representation": "Section",
+          "source": "packages/core/src/Section/Section.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "SegmentedControl",
+      "native": [
+        "Segmented"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "SegmentedControl",
+          "status": "native-equivalent",
+          "native": [
+            "Segmented"
+          ],
+          "representation": "原生命名为 Segmented，不重复新增别名方法。",
+          "source": "packages/core/src/SegmentedControl/SegmentedControl.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "SegmentedControlItem",
+          "status": "native-model",
+          "native": [
+            "Segmented"
+          ],
+          "representation": "labels 中的索引项。",
+          "source": "packages/core/src/SegmentedControl/SegmentedControlItem.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "SelectableCard",
+      "native": [
+        "SelectableCard"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "SelectableCard",
+          "status": "native-api",
+          "native": [
+            "SelectableCard"
+          ],
+          "representation": "SelectableCard",
+          "source": "packages/core/src/SelectableCard/SelectableCard.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Selector",
+      "native": [
+        "Select"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "Selector",
+          "status": "native-equivalent",
+          "native": [
+            "Select"
+          ],
+          "representation": "原生命名为 Select，不重复新增别名方法。",
+          "source": "packages/core/src/Selector/Selector.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "SelectorOption",
+          "status": "native-model",
+          "native": [
+            "Select"
+          ],
+          "representation": "Option{Value,Label,Disabled}。",
+          "source": "packages/core/src/Selector/SelectorOption.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "SideNav",
+      "native": [
+        "SideNav"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "SideNav",
+          "status": "native-api",
+          "native": [
+            "SideNav"
+          ],
+          "representation": "SideNav",
+          "source": "packages/core/src/SideNav/SideNav.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "SideNavCollapseButton",
+          "status": "native-model",
+          "native": [
+            "SideNav"
+          ],
+          "representation": "NavOptions.Collapsed 绑定的收起按钮。",
+          "source": "packages/core/src/SideNav/SideNavCollapseButton.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "SideNavHeading",
+          "status": "native-model",
+          "native": [
+            "SideNav",
+            "Heading",
+            "NavMenu"
+          ],
+          "representation": "宿主在导航头部组合 Heading/Avatar/NavMenu。",
+          "source": "packages/core/src/SideNav/SideNavHeading.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "SideNavItem",
+          "status": "native-model",
+          "native": [
+            "SideNav"
+          ],
+          "representation": "NavItem，支持 Children/Disabled/Icon/Badge。",
+          "source": "packages/core/src/SideNav/SideNavItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "SideNavRenderContext",
+          "status": "platform-adaptation",
+          "native": [
+            "SideNav"
+          ],
+          "representation": "NavItem 与 NavOptions 显式控制层级、选择和收起。",
+          "source": "packages/core/src/SideNav/SideNavRenderContext.ts",
+          "documented": false
+        },
+        {
+          "export": "SideNavSection",
+          "status": "native-model",
+          "native": [
+            "SideNav"
+          ],
+          "representation": "NavItem.Section/Children。",
+          "source": "packages/core/src/SideNav/SideNavSection.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "分组、层级展开、选择、徽标与收起模式；布局交给宿主组合。"
+    },
+    {
+      "family": "Skeleton",
+      "native": [
+        "Skeleton"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Skeleton",
+          "status": "native-api",
+          "native": [
+            "Skeleton"
+          ],
+          "representation": "Skeleton",
+          "source": "packages/core/src/Skeleton/Skeleton.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Slider",
+      "native": [
+        "Slider"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Slider",
+          "status": "native-api",
+          "native": [
+            "Slider"
+          ],
+          "representation": "Slider",
+          "source": "packages/core/src/Slider/Slider.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Spinner",
+      "native": [
+        "Spinner"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Spinner",
+          "status": "native-api",
+          "native": [
+            "Spinner"
+          ],
+          "representation": "Spinner",
+          "source": "packages/core/src/Spinner/Spinner.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Stack",
+      "native": [
+        "Stack"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "HStack",
+          "status": "native-api",
+          "native": [
+            "HStack"
+          ],
+          "representation": "HStack",
+          "source": "packages/core/src/HStack/HStack.tsx",
+          "documented": false
+        },
+        {
+          "export": "Stack",
+          "status": "native-api",
+          "native": [
+            "Stack"
+          ],
+          "representation": "Stack",
+          "source": "packages/core/src/Stack/Stack.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "StackItem",
+          "status": "native-model",
+          "native": [
+            "Stack",
+            "HStack"
+          ],
+          "representation": "子元素的 Grow/Shrink/Align 等布局属性。",
+          "source": "packages/core/src/Stack/StackItem.tsx",
+          "documented": false
+        },
+        {
+          "export": "VStack",
+          "status": "native-equivalent",
+          "native": [
+            "Stack"
+          ],
+          "representation": "原生命名为 Stack，不重复新增别名方法。",
+          "source": "packages/core/src/VStack/VStack.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "StatusDot",
+      "native": [
+        "StatusDot"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "StatusDot",
+          "status": "native-api",
+          "native": [
+            "StatusDot"
+          ],
+          "representation": "StatusDot",
+          "source": "packages/core/src/StatusDot/StatusDot.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Stepper",
+      "native": [
+        "Stepper"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Step",
+          "status": "native-model",
+          "native": [
+            "Stepper"
+          ],
+          "representation": "Step 的 Label/Description/Disabled/Error。",
+          "source": "packages/core/src/Stepper/Step.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "Stepper",
+          "status": "native-api",
+          "native": [
+            "Stepper"
+          ],
+          "representation": "Stepper",
+          "source": "packages/core/src/Stepper/Stepper.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Switch",
+      "native": [
+        "Switch"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Switch",
+          "status": "native-api",
+          "native": [
+            "Switch"
+          ],
+          "representation": "Switch",
+          "source": "packages/core/src/Switch/Switch.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "TabList",
+      "native": [
+        "Tabs"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "Tab",
+          "status": "native-model",
+          "native": [
+            "Tabs"
+          ],
+          "representation": "labels 的索引项；宿主根据选中索引构建内容。",
+          "source": "packages/core/src/TabList/Tab.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TabList",
+          "status": "native-equivalent",
+          "native": [
+            "Tabs"
+          ],
+          "representation": "原生命名为 Tabs，不重复新增别名方法。",
+          "source": "packages/core/src/TabList/TabList.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TabMenu",
+          "status": "partial",
+          "native": [
+            "Tabs",
+            "DropdownMenu"
+          ],
+          "representation": "可在标签栏旁组合菜单；尚无绑定单个 Tab 的内建操作菜单。",
+          "source": "packages/core/src/TabList/TabMenu.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Table",
+      "native": [
+        "Table"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Table",
+          "status": "native-api",
+          "native": [
+            "Table"
+          ],
+          "representation": "Table",
+          "source": "packages/core/src/Table/Table.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableBody",
+          "status": "native-model",
+          "native": [
+            "Table"
+          ],
+          "representation": "MyGo 内建表头、列定义和行/单元格回调；没有独立 DOM 部件对象。",
+          "source": "packages/core/src/Table/TableBody.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableCell",
+          "status": "native-model",
+          "native": [
+            "Table"
+          ],
+          "representation": "MyGo 内建表头、列定义和行/单元格回调；没有独立 DOM 部件对象。",
+          "source": "packages/core/src/Table/TableCell.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableContext",
+          "status": "platform-adaptation",
+          "native": [
+            "Table"
+          ],
+          "representation": "ListState、列定义和单元格回调，不暴露 DOM 表格上下文。",
+          "source": "packages/core/src/Table/TableContext.ts",
+          "documented": false
+        },
+        {
+          "export": "TableFooter",
+          "status": "partial",
+          "native": [
+            "Table",
+            "Stack"
+          ],
+          "representation": "可在表格之后组合内容；尚无与虚拟列自动对齐的内建固定页脚。",
+          "source": "packages/core/src/Table/TableFooter.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableHeader",
+          "status": "native-model",
+          "native": [
+            "Table"
+          ],
+          "representation": "MyGo 内建表头、列定义和行/单元格回调；没有独立 DOM 部件对象。",
+          "source": "packages/core/src/Table/TableHeader.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableHeaderCell",
+          "status": "native-model",
+          "native": [
+            "Table"
+          ],
+          "representation": "MyGo 内建表头、列定义和行/单元格回调；没有独立 DOM 部件对象。",
+          "source": "packages/core/src/Table/TableHeaderCell.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableRow",
+          "status": "native-model",
+          "native": [
+            "Table"
+          ],
+          "representation": "MyGo 内建表头、列定义和行/单元格回调；没有独立 DOM 部件对象。",
+          "source": "packages/core/src/Table/TableRow.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TableSelectionToolbar",
+          "status": "native-composition",
+          "native": [
+            "Table",
+            "Toolbar"
+          ],
+          "representation": "宿主根据 ListState 的选择构建 Toolbar。",
+          "source": "packages/core/src/Table/TableSelectionToolbar.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo 虚拟表格；列、单元格与 ListState 表示行/头/体/选择。Astryx React 插件和 DOM 表格部件没有独立 Go 对象。"
+    },
+    {
+      "family": "Text",
+      "native": [
+        "Text"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Heading",
+          "status": "native-api",
+          "native": [
+            "Heading"
+          ],
+          "representation": "Heading",
+          "source": "packages/core/src/Text/Heading.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "Text",
+          "status": "native-api",
+          "native": [
+            "Text"
+          ],
+          "representation": "Text",
+          "source": "packages/core/src/Text/Text.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "TextArea",
+      "native": [
+        "TextArea"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "TextArea",
+          "status": "native-api",
+          "native": [
+            "TextArea"
+          ],
+          "representation": "TextArea",
+          "source": "packages/core/src/TextArea/TextArea.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "TextInput",
+      "native": [
+        "TextInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "TextInput",
+          "status": "native-api",
+          "native": [
+            "TextInput"
+          ],
+          "representation": "TextInput",
+          "source": "packages/core/src/TextInput/TextInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Thumbnail",
+      "native": [
+        "Thumbnail"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Thumbnail",
+          "status": "native-api",
+          "native": [
+            "Thumbnail"
+          ],
+          "representation": "Thumbnail",
+          "source": "packages/core/src/Thumbnail/Thumbnail.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "TimeInput",
+      "native": [
+        "TimeInput"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "TimeInput",
+          "status": "native-api",
+          "native": [
+            "TimeInput"
+          ],
+          "representation": "TimeInput",
+          "source": "packages/core/src/TimeInput/TimeInput.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Timer",
+      "native": [
+        "Timer"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Timer",
+          "status": "native-api",
+          "native": [
+            "Timer"
+          ],
+          "representation": "Timer",
+          "source": "packages/core/src/Timer/Timer.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Timestamp",
+      "native": [
+        "Timestamp"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Timestamp",
+          "status": "native-api",
+          "native": [
+            "Timestamp"
+          ],
+          "representation": "Timestamp",
+          "source": "packages/core/src/Timestamp/Timestamp.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Toast",
+      "native": [
+        "Toast"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Toast",
+          "status": "native-api",
+          "native": [
+            "Toast"
+          ],
+          "representation": "Toast",
+          "source": "packages/core/src/Toast/Toast.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ToastViewport",
+          "status": "native-api",
+          "native": [
+            "ToastViewport"
+          ],
+          "representation": "ToastViewport",
+          "source": "packages/core/src/Toast/ToastViewport.tsx",
+          "documented": false
+        }
+      ],
+      "notes": "MyGo 通知队列，Toast 返回 ID，ToastViewport 呈现；动作、超时与焦点由原生 Base 管理。"
+    },
+    {
+      "family": "ToggleButton",
+      "native": [
+        "Toggle"
+      ],
+      "mapping": "native-equivalent",
+      "parts": [
+        {
+          "export": "ToggleButton",
+          "status": "native-equivalent",
+          "native": [
+            "Toggle"
+          ],
+          "representation": "原生命名为 Toggle，不重复新增别名方法。",
+          "source": "packages/core/src/ToggleButton/ToggleButton.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "ToggleButtonGroup",
+          "status": "native-model",
+          "native": [
+            "ButtonGroup",
+            "Toggle"
+          ],
+          "representation": "ButtonGroup 的 ToggleGroup 分组及受控 Toggle。",
+          "source": "packages/core/src/ToggleButton/ToggleButtonGroup.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Token",
+      "native": [
+        "Token"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Token",
+          "status": "native-api",
+          "native": [
+            "Token"
+          ],
+          "representation": "Token",
+          "source": "packages/core/src/Token/Token.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Tokenizer",
+      "native": [
+        "Tokenizer"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Tokenizer",
+          "status": "native-api",
+          "native": [
+            "Tokenizer"
+          ],
+          "representation": "Tokenizer",
+          "source": "packages/core/src/Tokenizer/Tokenizer.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo 原生 TokenField 提供建议、添加、删除与退格。"
+    },
+    {
+      "family": "Toolbar",
+      "native": [
+        "Toolbar"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Toolbar",
+          "status": "native-api",
+          "native": [
+            "Toolbar"
+          ],
+          "representation": "Toolbar",
+          "source": "packages/core/src/Toolbar/Toolbar.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "Tooltip",
+      "native": [
+        "Tooltip"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "Tooltip",
+          "status": "native-api",
+          "native": [
+            "Tooltip"
+          ],
+          "representation": "Tooltip",
+          "source": "packages/core/src/Tooltip/Tooltip.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "TopNav",
+      "native": [
+        "TopNav",
+        "TopNavMegaMenu",
+        "TopNavMegaMenuItem"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "TopNav",
+          "status": "native-api",
+          "native": [
+            "TopNav"
+          ],
+          "representation": "TopNav",
+          "source": "packages/core/src/TopNav/TopNav.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavHeading",
+          "status": "native-model",
+          "native": [
+            "TopNav",
+            "Heading",
+            "Avatar"
+          ],
+          "representation": "宿主组合品牌标题与头像区域。",
+          "source": "packages/core/src/TopNav/TopNavHeading.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavItem",
+          "status": "native-model",
+          "native": [
+            "TopNav"
+          ],
+          "representation": "NavItem 数据。",
+          "source": "packages/core/src/TopNav/TopNavItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavMegaMenu",
+          "status": "native-api",
+          "native": [
+            "TopNavMegaMenu"
+          ],
+          "representation": "TopNavMegaMenu",
+          "source": "packages/core/src/TopNav/TopNavMegaMenu.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavMegaMenuFeaturedCard",
+          "status": "native-model",
+          "native": [
+            "TopNavMegaMenu",
+            "Card",
+            "TopNavMegaMenuItem"
+          ],
+          "representation": "featured 插槽中的 Card 与关闭菜单的操作条目。",
+          "source": "packages/core/src/TopNav/TopNavMegaMenuFeaturedCard.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavMegaMenuItem",
+          "status": "native-api",
+          "native": [
+            "TopNavMegaMenuItem"
+          ],
+          "representation": "TopNavMegaMenuItem",
+          "source": "packages/core/src/TopNav/TopNavMegaMenuItem.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavMenu",
+          "status": "native-model",
+          "native": [
+            "TopNav",
+            "NavMenu"
+          ],
+          "representation": "带 Children 的 NavItem 使用原生菜单。",
+          "source": "packages/core/src/TopNav/TopNavMenu.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TopNavRenderContext",
+          "status": "platform-adaptation",
+          "native": [
+            "TopNav",
+            "TopNavMegaMenuItem"
+          ],
+          "representation": "NavItem、内容回调和当前 builder 的 MegaMenu 关闭动作。",
+          "source": "packages/core/src/TopNav/TopNavRenderContext.ts",
+          "documented": false
+        }
+      ],
+      "notes": "MegaMenu 长内容内部滚动、键盘进入与焦点恢复；TopNavMegaMenuItem 执行动作并关闭，窄窗改为 Drawer。"
+    },
+    {
+      "family": "TreeList",
+      "native": [
+        "TreeList"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "TreeList",
+          "status": "native-api",
+          "native": [
+            "TreeList"
+          ],
+          "representation": "TreeList",
+          "source": "packages/core/src/TreeList/TreeList.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "MyGo OutlineState 与原生虚拟树；应用提供稳定节点 ID、子节点与内容。"
+    },
+    {
+      "family": "Typeahead",
+      "native": [
+        "Typeahead"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "BaseTypeahead",
+          "status": "native-model",
+          "native": [
+            "Typeahead"
+          ],
+          "representation": "原生 MyGo ComboboxBase 管线；可直接使用公开 MyGo Base 定制。",
+          "source": "packages/core/src/Typeahead/BaseTypeahead.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "Typeahead",
+          "status": "native-api",
+          "native": [
+            "Typeahead"
+          ],
+          "representation": "Typeahead",
+          "source": "packages/core/src/Typeahead/Typeahead.doc.mjs",
+          "documented": true
+        },
+        {
+          "export": "TypeaheadItem",
+          "status": "native-model",
+          "native": [
+            "Typeahead"
+          ],
+          "representation": "Suggestion{ID,Label,Description,Group,Disabled}。",
+          "source": "packages/core/src/Typeahead/TypeaheadItem.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    },
+    {
+      "family": "VisuallyHidden",
+      "native": [
+        "VisuallyHidden"
+      ],
+      "mapping": "native-api",
+      "parts": [
+        {
+          "export": "VisuallyHidden",
+          "status": "native-api",
+          "native": [
+            "VisuallyHidden"
+          ],
+          "representation": "VisuallyHidden",
+          "source": "packages/core/src/VisuallyHidden/VisuallyHidden.doc.mjs",
+          "documented": true
+        }
+      ],
+      "notes": "采用原生 Go API 和 MyGo 元素组合，样式跟随局部主题；不承诺 React props 完全一致。"
+    }
+  ],
+  "part_status_counts": {
+    "deprecated-migration": 1,
+    "native-api": 121,
+    "native-composition": 1,
+    "native-equivalent": 10,
+    "native-model": 62,
+    "native-slot": 6,
+    "partial": 2,
+    "platform-adaptation": 12
+  }
+}
