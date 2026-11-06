@@ -1,9 +1,9 @@
 package astryx_test
 
 import (
+	kit "github.com/Viking602/mygo-astryx"
+	"github.com/Viking602/mygo-astryx/theme"
 	"github.com/egoist/mygo/ui"
-	kit "mygo-astryx"
-	"mygo-astryx/theme"
 	"testing"
 	"time"
 )

@@ -35,12 +35,18 @@ go run ./cmd/gallery -snapshot artifacts/gallery-narrow.png -width 420 -height 7
 
 ## 使用组件
 
-模块路径暂为本地 `mygo-astryx`，尚未发布到远程仓库。当前可在此模块中使用，或由其他项目通过 Go module 的本地 `replace` 引用；公开发布时再设定真实仓库路径。
+通过 Go module 安装 `v0.1.0`：
+
+```sh
+go get github.com/Viking602/mygo-astryx@v0.1.0
+```
+
+在代码中引入并使用：
 
 ```go
 import (
-    astryx "mygo-astryx"
-    "mygo-astryx/theme"
+    astryx "github.com/Viking602/mygo-astryx"
+    "github.com/Viking602/mygo-astryx/theme"
     "github.com/egoist/mygo/ui"
 )
 

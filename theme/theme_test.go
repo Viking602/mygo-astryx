@@ -1,9 +1,9 @@
 package theme_test
 
 import (
+	"github.com/Viking602/mygo-astryx/theme"
 	"github.com/egoist/mygo/ui"
 	"math"
-	"mygo-astryx/theme"
 	"testing"
 )
 

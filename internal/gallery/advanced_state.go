@@ -1,8 +1,8 @@
 package gallery
 
 import (
+	kit "github.com/Viking602/mygo-astryx"
 	"github.com/egoist/mygo/ui"
-	kit "mygo-astryx"
 	"time"
 )
 

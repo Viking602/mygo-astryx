@@ -1,8 +1,8 @@
 package astryx
 
 import (
+	"github.com/Viking602/mygo-astryx/theme"
 	"github.com/egoist/mygo/ui"
-	"mygo-astryx/theme"
 )
 
 // UI builds components in one MyGo build pass. Do not store it in app state.

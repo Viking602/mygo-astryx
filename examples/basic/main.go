@@ -2,11 +2,11 @@
 package main
 
 import (
+	kit "github.com/Viking602/mygo-astryx"
+	"github.com/Viking602/mygo-astryx/theme"
 	"github.com/egoist/mygo"
 	"github.com/egoist/mygo/ui"
 	"log"
-	kit "mygo-astryx"
-	"mygo-astryx/theme"
 )
 
 type app struct {

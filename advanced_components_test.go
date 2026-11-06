@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
+	kit "github.com/Viking602/mygo-astryx"
 	"github.com/egoist/mygo/ui"
-	kit "mygo-astryx"
 )
 
 func TestLongSelectScrollsItsOptionsAndChoosesLast(t *testing.T) {

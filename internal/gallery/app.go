@@ -4,9 +4,9 @@ package gallery
 import (
 	"fmt"
 	"github.com/egoist/mygo/ui"
-	kit "mygo-astryx"
-	"mygo-astryx/internal/catalog"
-	"mygo-astryx/theme"
+	kit "github.com/Viking602/mygo-astryx"
+	"github.com/Viking602/mygo-astryx/internal/catalog"
+	"github.com/Viking602/mygo-astryx/theme"
 	"strings"
 	"time"
 )

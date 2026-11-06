@@ -9,8 +9,8 @@ import (
 	"github.com/egoist/mygo/ui"
 	"image/png"
 	"log"
-	"mygo-astryx/internal/catalog"
-	"mygo-astryx/internal/gallery"
+	"github.com/Viking602/mygo-astryx/internal/catalog"
+	"github.com/Viking602/mygo-astryx/internal/gallery"
 	"os"
 	"path/filepath"
 )

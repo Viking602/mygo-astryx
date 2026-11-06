@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.1.0 (2026-04-20)
 
 - 本轮对照修复：长说明/菜单/自定义弹层滚动、移动子导航、键盘焦点、日期规则和默认值、聊天上下文保留与消息回调。
 - 新增 AvatarStatusDot、AvatarGroupOverflow、MobileNavToggle、TopNavMegaMenuItem；Gallery 支持 Astryx 原名搜索、源码对照和 10 种状态预览。

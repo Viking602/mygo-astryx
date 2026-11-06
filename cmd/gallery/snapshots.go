@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/Viking602/mygo-astryx/internal/catalog"
+	"github.com/Viking602/mygo-astryx/internal/gallery"
 	"github.com/egoist/mygo/ui"
-	"mygo-astryx/internal/catalog"
-	"mygo-astryx/internal/gallery"
 )
 
 // Every component maps to an actual live demo. Compound pieces share a demo;

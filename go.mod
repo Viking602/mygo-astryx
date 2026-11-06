@@ -1,4 +1,4 @@
-module mygo-astryx
+module github.com/Viking602/mygo-astryx
 
 go 1.27.3
 

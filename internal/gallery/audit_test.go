@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/Viking602/mygo-astryx/internal/catalog"
 	"github.com/egoist/mygo/ui"
-	"mygo-astryx/internal/catalog"
 )
 
 func TestGalleryScenariosBothThemesAndSizes(t *testing.T) {
